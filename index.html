@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derlan Nascimento - Portfólio de Programação</title>
+    <!-- Carrega o Tailwind CSS para design responsivo e moderno -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Define a fonte Inter como prioridade */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        :root {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* light background */
+        }
+        /* Cor de destaque profissional: Sky Blue */
+        .accent-color {
+            color: #0ea5e9; 
+        }
+        .accent-bg {
+            background-color: #0ea5e9;
+        }
+        /* Animação simples de fade-in para as seções */
+        .section-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Estilo para a foto de perfil */
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #0ea5e9; /* Borda com a cor de destaque */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        /* Iframe do YouTube responsivo */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 0.5rem;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Navbar Fixa -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
+            <div class="text-2xl font-bold accent-color">DSN.Dev</div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium" id="desktop-nav">
+                <!-- Links de navegação serão preenchidos pelo JS -->
+            </div>
+            <div class="flex items-center space-x-4">
+                <button id="lang-toggle" class="bg-gray-200 hover:bg-gray-300 text-gray-800 text-xs font-semibold py-1 px-3 rounded-full transition duration-300">
+                    EN
+                </button>
+                <button id="menu-button" class="md:hidden p-2 rounded-md hover:bg-gray-100 focus:outline-none">
+                    <!-- Icone Menu SVG -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Menu Mobile (oculto por padrão) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg pb-4">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3" id="mobile-nav">
+                <!-- Links de navegação serão preenchidos pelo JS -->
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. Página Inicial (Hero Section) -->
+    <section id="home" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 flex flex-col items-center text-center section-fade-in">
+        <span class="accent-color text-lg font-semibold mb-3" data-key="hero_welcome">Bem-vindo ao meu Portfólio</span>
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-4 leading-tight">
+            Derlan Santos do Nascimento
+        </h1>
+        <p class="text-2xl md:text-3xl text-gray-500 mb-8 font-light" data-key="hero_title">
+            <!-- Conteúdo dinâmico -->
+        </p>
+        <a href="#about" class="accent-bg text-white font-semibold py-3 px-8 rounded-full hover:bg-sky-600 transition duration-300 transform hover:scale-105 shadow-lg" data-key="hero_services_btn">
+            <!-- Conteúdo dinâmico -->
+        </a>
+    </section>
+
+    <!-- 2. Sobre Mim -->
+    <section id="about" class="bg-white py-20 md:py-24 section-fade-in shadow-inner">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 accent-color" data-key="about_title">Sobre Mim</h2>
+            
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <!-- Coluna da Esquerda: Foto e Vídeo -->
+                <div class="flex flex-col items-center space-y-8">
+                    <!-- Foto do Perfil -->
+                    <img src="Derlan.jpg-14777527-98ca-4873-a2ac-dc061c0500e2" alt="Foto de Perfil de Derlan" class="profile-photo">
+                    
+                    <!-- Vídeo de Apresentação (YouTube Short) -->
+                    <div class="w-full max-w-sm md:max-w-md">
+                        <h3 class="text-xl font-semibold mb-4 text-center" data-key="about_video_title">Vídeo de Apresentação</h3>
+                        <div class="video-container">
+                             <!-- Embed do YouTube Short ID: uB-4mqI5-4U -->
+                            <iframe 
+                                src="https://www.youtube.com/embed/uB-4mqI5-4U" 
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen
+                                class="rounded-lg">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna da Direita: Texto e CV -->
+                <div class="space-y-6 md:pr-10">
+                    <p class="text-gray-600 leading-relaxed text-lg" data-key="about_summary">
+                        <!-- Conteúdo dinâmico -->
+                    </p>
+                    <a href="CV Derlan Nascimento.pdf" download class="inline-flex items-center accent-color font-semibold border-2 border-current py-2 px-6 rounded-full hover:bg-sky-50 transition duration-300">
+                        <!-- Ícone de Download -->
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        <span data-key="about_cv_download">Baixar CV</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Nível de Escolaridade (Education) -->
+    <section id="education" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24 section-fade-in">
+        <h2 class="text-4xl font-bold text-center mb-12 accent-color" data-key="education_title">Nível de Escolaridade</h2>
+
+        <div class="relative max-w-4xl mx-auto">
+            <!-- Linha do tempo (Timeline) -->
+            <div class="hidden md:block absolute h-full w-0.5 bg-gray-300 left-1/2 transform -translate-x-1/2"></div>
+            
+            <div id="education-list" class="space-y-12">
+                <!-- Itens da timeline serão injetados pelo JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Porque Deve Me Contratar -->
+    <section id="hire" class="accent-bg text-white py-20 md:py-24 section-fade-in">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-8" data-key="hire_title">Porque Deve Me Contratar?</h2>
+            <div class="bg-white text-gray-800 p-8 rounded-lg shadow-2xl max-w-4xl mx-auto transform hover:scale-[1.01] transition duration-500">
+                <p class="text-xl italic font-medium" data-key="hire_text">
+                    <!-- Conteúdo dinâmico -->
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Contato -->
+    <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24 section-fade-in">
+        <h2 class="text-4xl font-bold text-center mb-12 accent-color" data-key="contact_title">Contato</h2>
+        
+        <div class="grid md:grid-cols-3 gap-10">
+            <!-- Links e Informações -->
+            <div class="space-y-6 md:col-span-1">
+                <!-- Email -->
+                <div class="flex items-center space-x-3">
+                    <div class="p-3 accent-bg text-white rounded-full">
+                         <!-- Icone Email SVG -->
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26c.49.33 1.11.33 1.6 0L21 8M3 8a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"></path></svg>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-gray-500">Email</p>
+                        <a href="mailto:derlan17@gmail.com" class="text-lg font-medium hover:underline">derlan17@gmail.com</a>
+                    </div>
+                </div>
+                <!-- LinkedIn -->
+                <div class="flex items-center space-x-3">
+                    <div class="p-3 accent-bg text-white rounded-full">
+                        <!-- Icone LinkedIn SVG -->
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 2.76-2.24 5-5 5S2 13.76 2 11v-1h4v1c0 1.66 1.34 3 3 3s3-1.34 3-3V10H2V7h10v3z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 4a2 2 0 114 0 2 2 0 01-4 0z"></path></svg>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-gray-500">LinkedIn</p>
+                        <a href="https://www.linkedin.com/in/derlan-santos-do-nascimento-938a39112/" target="_blank" class="text-lg font-medium hover:underline">Perfil Profissional</a>
+                    </div>
+                </div>
+                <!-- Outros -->
+                <div class="flex items-center space-x-3">
+                    <div class="p-3 accent-bg text-white rounded-full">
+                         <!-- Icone Localização SVG -->
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243m10.606-.707a7.001 7.001 0 00-11.89-6.364M4 12h.01M19 12h.01"></path></svg>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-gray-500" data-key="contact_location">Localização</p>
+                        <p class="text-lg font-medium">Aveiro, Portugal</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulário de Contato (Simulado) -->
+            <div class="md:col-span-2 bg-gray-50 p-6 sm:p-8 rounded-lg shadow-xl">
+                <form onsubmit="event.preventDefault(); showMessage();" class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700" data-key="contact_name_label">Nome</label>
+                        <input type="text" id="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-sky-500 focus:ring-sky-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700" data-key="contact_email_label">Email</label>
+                        <input type="email" id="email" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-sky-500 focus:ring-sky-500">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700" data-key="contact_message_label">Mensagem</label>
+                        <textarea id="message" rows="4" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-sky-500 focus:ring-sky-500"></textarea>
+                    </div>
+                    <button type="submit" class="w-full accent-bg text-white font-semibold py-3 rounded-md hover:bg-sky-600 transition duration-300 transform hover:scale-[1.01] shadow-lg" data-key="contact_send_btn">
+                        Enviar Mensagem
+                    </button>
+                    <!-- Modal para feedback do formulário -->
+                    <div id="form-message" class="hidden mt-4 p-3 bg-green-100 text-green-700 rounded-md text-center" role="alert">
+                        <!-- Mensagem será injetada pelo JS -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            <p data-key="footer_text">© 2024 Derlan Santos do Nascimento. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dados Bilíngues
+        const content = {
+            pt: {
+                nav_home: 'Início', nav_about: 'Sobre Mim', nav_education: 'Formação', nav_hire: 'Porquê Contratar', nav_contact: 'Contato',
+                hero_welcome: 'Bem-vindo ao meu Portfólio',
+                hero_title: 'Estudante de Programação de Sistemas de Informação',
+                hero_services_btn: 'Ver Habilidades',
+                about_title: 'Sobre Derlan',
+                about_summary: 'Sou um profissional com uma base sólida em gestão e engenharia civil, em transição de carreira para o desenvolvimento de sistemas de informação. Tenho proficiência em lógica de programação, estruturas de dados e linguagens como Python e JavaScript. Minha experiência anterior me dotou de uma excelente capacidade de resolução de problemas, visão estratégica e foco em resultados. Estou em busca da minha primeira oportunidade para aplicar meus conhecimentos e crescer em um ambiente focado em boas práticas de código e trabalho em equipe. Você pode me acompanhar na minha jornada de programação no vídeo ao lado.',
+                about_video_title: 'Vídeo de Apresentação',
+                about_cv_download: 'Baixar CV',
+                education_title: 'Nível de Escolaridade',
+                education_item1_title: 'Técnico Superior Profissional em Programação de Sistemas de Informação',
+                education_item1_inst: 'ESTGA - Universidade de Aveiro (Em curso)',
+                education_item1_date: '2023 - Presente',
+                education_item2_title: 'Pós-Graduação em Gestão de Obras',
+                education_item2_inst: 'Centro Educacional BSSP',
+                education_item2_date: '2022',
+                education_item3_title: 'Graduação em Engenharia Civil',
+                education_item3_inst: 'Unifacemp',
+                education_item3_date: '2017 - 2021',
+                education_item4_title: 'Graduação em Administração de Empresas',
+                education_item4_inst: 'Unifacemp',
+                education_item4_date: '2006 - 2010',
+                hire_title: 'Porque Deve Me Contratar?',
+                hire_text: 'Sou um profissional **proativo** e movido pela curiosidade, sempre em busca de novos conhecimentos e melhores práticas no desenvolvimento de software. Minha dedicação é inquestionável; sou extremamente **esforçado** e trago a disciplina e a mentalidade de solução de problemas adquiridas na Engenharia e Administração para o campo da programação. Contratar-me significa ganhar um membro da equipe que não apenas aprende rapidamente, mas que também se empenha em transformar desafios em soluções eficientes e sustentáveis.',
+                contact_title: 'Contato',
+                contact_name_label: 'Nome',
+                contact_email_label: 'Email',
+                contact_message_label: 'Mensagem',
+                contact_send_btn: 'Enviar Mensagem',
+                contact_location: 'Localização',
+                form_success: 'Mensagem enviada com sucesso! Entrarei em contato em breve.',
+                footer_text: '© 2024 Derlan Santos do Nascimento. Todos os direitos reservados.',
+            },
+            en: {
+                nav_home: 'Home', nav_about: 'About Me', nav_education: 'Education', nav_hire: 'Why Hire Me', nav_contact: 'Contact',
+                hero_welcome: 'Welcome to My Portfolio',
+                hero_title: 'Information Systems Programming Student',
+                hero_services_btn: 'View Skills',
+                about_title: 'About Derlan',
+                about_summary: 'I am a professional with a solid background in management and civil engineering, transitioning my career to information systems development. I have proficiency in programming logic, data structures, and languages like Python and JavaScript. My previous experience has equipped me with excellent problem-solving skills, strategic vision, and a focus on results. I am seeking my first opportunity to apply my knowledge and grow in an environment focused on coding best practices and teamwork. You can follow my coding journey in the video on the side.',
+                about_video_title: 'Presentation Video',
+                about_cv_download: 'Download CV',
+                education_title: 'Education Level',
+                education_item1_title: 'Higher Professional Technician in Information Systems Programming',
+                education_item1_inst: 'ESTGA - University of Aveiro (In progress)',
+                education_item1_date: '2023 - Present',
+                education_item2_title: 'Post-Graduation in Construction Management',
+                education_item2_inst: 'Centro Educacional BSSP',
+                education_item2_date: '2022',
+                education_item3_title: 'Degree in Civil Engineering',
+                education_item3_inst: 'Unifacemp',
+                education_item3_date: '2017 - 2021',
+                education_item4_title: 'Degree in Business Administration',
+                education_item4_inst: 'Unifacemp',
+                education_item4_date: '2006 - 2010',
+                hire_title: 'Why Should You Hire Me?',
+                hire_text: 'I am a **proactive** professional driven by curiosity, always seeking new knowledge and best practices in software development. My dedication is unquestionable; I am extremely **hardworking** and bring the discipline and problem-solving mindset acquired in Engineering and Administration to the field of programming. Hiring me means gaining a team member who not only learns quickly but is also committed to turning challenges into efficient and sustainable solutions.',
+                contact_title: 'Contact',
+                contact_name_label: 'Name',
+                contact_email_label: 'Email',
+                contact_message_label: 'Message',
+                contact_send_btn: 'Send Message',
+                contact_location: 'Location',
+                form_success: 'Message sent successfully! I will get in touch shortly.',
+                footer_text: '© 2024 Derlan Santos do Nascimento. All rights reserved.',
+            }
+        };
+
+        let currentLang = 'pt';
+        const langToggle = document.getElementById('lang-toggle');
+        const sections = ['home', 'about', 'education', 'hire', 'contact'];
+
+        // Função para alternar entre as classes 'left' e 'right' para o design da timeline
+        function isLeft(index) {
+            return index % 2 === 0;
+        }
+
+        // Função para renderizar a Timeline de Educação
+        function renderEducation(lang) {
+            const educationList = document.getElementById('education-list');
+            educationList.innerHTML = ''; // Limpa antes de renderizar
+
+            const educationData = [
+                {
+                    title_key: 'education_item1_title',
+                    inst_key: 'education_item1_inst',
+                    date_key: 'education_item1_date',
+                },
+                {
+                    title_key: 'education_item2_title',
+                    inst_key: 'education_item2_inst',
+                    date_key: 'education_item2_date',
+                },
+                {
+                    title_key: 'education_item3_title',
+                    inst_key: 'education_item3_inst',
+                    date_key: 'education_item3_date',
+                },
+                {
+                    title_key: 'education_item4_title',
+                    inst_key: 'education_item4_inst',
+                    date_key: 'education_item4_date',
+                },
+            ];
+
+            educationData.forEach((item, index) => {
+                const isItemLeft = isLeft(index);
+                const itemHtml = `
+                    <div class="relative flex ${isItemLeft ? 'md:justify-start' : 'md:justify-end'}">
+                        <!-- Ponto Central (Visível em Mobile e Desktop) -->
+                        <div class="absolute md:relative left-2 md:left-auto top-0 w-4 h-4 rounded-full accent-bg z-10 
+                            ${isItemLeft ? 'md:order-1 md:ml-[-8px]' : 'md:order-3 md:mr-[-8px]'}">
+                        </div>
+
+                        <!-- Conteúdo da Timeline -->
+                        <div class="p-4 rounded-lg shadow-lg bg-white w-full md:w-5/12 
+                            ${isItemLeft ? 'md:text-right md:order-2 md:mr-6 ml-10' : 'md:text-left md:order-2 md:ml-6 ml-10'}">
+                            <h4 class="text-xl font-bold accent-color">${content[lang][item.title_key]}</h4>
+                            <p class="text-gray-700 font-semibold">${content[lang][item.inst_key]}</p>
+                            <span class="text-sm text-gray-500">${content[lang][item.date_key]}</span>
+                        </div>
+                    </div>
+                `;
+                educationList.innerHTML += itemHtml;
+            });
+        }
+        
+        // Função principal para atualizar todos os textos na página
+        function updateContent(lang) {
+            currentLang = lang;
+
+            // Atualiza o toggle de idioma
+            langToggle.textContent = lang.toUpperCase() === 'PT' ? 'EN' : 'PT';
+            document.documentElement.lang = lang; // Altera a lang do HTML
+
+            // Atualiza todos os elementos com o atributo data-key
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (content[lang] && content[lang][key]) {
+                    el.innerHTML = content[lang][key];
+                }
+            });
+
+            // Atualiza os links de navegação
+            const navLinks = [
+                { href: '#home', key: 'nav_home' },
+                { href: '#about', key: 'nav_about' },
+                { href: '#education', key: 'nav_education' },
+                { href: '#hire', key: 'nav_hire' },
+                { href: '#contact', key: 'nav_contact' },
+            ];
+
+            const createNavLink = (item, isMobile = false) => {
+                const linkClass = isMobile ? 'block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50' : 'text-gray-600 hover:text-sky-500 transition duration-300';
+                return `<a href="${item.href}" class="${linkClass}">${content[lang][item.key]}</a>`;
+            };
+
+            document.getElementById('desktop-nav').innerHTML = navLinks.map(item => createNavLink(item)).join('');
+            document.getElementById('mobile-nav').innerHTML = navLinks.map(item => createNavLink(item, true)).join('');
+
+            // Renderiza a seção de Educação
+            renderEducation(lang);
+        }
+
+        // Event Listeners
+        langToggle.addEventListener('click', () => {
+            const newLang = currentLang === 'pt' ? 'en' : 'pt';
+            updateContent(newLang);
+        });
+
+        document.getElementById('menu-button').addEventListener('click', () => {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Simulação de envio de formulário
+        function showMessage() {
+            const formMessage = document.getElementById('form-message');
+            formMessage.textContent = content[currentLang]['form_success'];
+            formMessage.classList.remove('hidden', 'bg-red-100', 'text-red-700');
+            formMessage.classList.add('bg-green-100', 'text-green-700');
+            
+            // Limpa o formulário após a simulação
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('message').value = '';
+
+            setTimeout(() => {
+                formMessage.classList.add('hidden');
+            }, 5000); // Esconde a mensagem após 5 segundos
+        }
+
+        // Animação de Scroll/Observador
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            rootMargin: '0px',
+            threshold: 0.2 
+        });
+
+        document.querySelectorAll('.section-fade-in').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Inicializa o conteúdo ao carregar a página (PT por padrão)
+        document.addEventListener('DOMContentLoaded', () => {
+            updateContent('pt');
+        });
+    </script>
+</body>
+</html>
